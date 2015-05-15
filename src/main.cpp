@@ -58,7 +58,7 @@ int checkWinner(){
     }else{
         return 0;
     }
-}/*
+}
 void checkWin(){
     if(checkWinner() == 1){
         //X Wins
@@ -69,7 +69,7 @@ void checkWin(){
         cout << "Player Y Wins!" << endl;
         gameActive = 0;
     }else{}
-}*/
+}
 
 void makeMove(){
     int row;
