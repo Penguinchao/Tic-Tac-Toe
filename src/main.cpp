@@ -42,7 +42,7 @@ void showBoard(){
 }
 
 int checkWinner(){
-    if(board[0][0] == board[0][1] == board[0][2] !=){
+    if(board[0][0] == board[0][1] == board[0][2] !=0 ){
         debugOut("END 1");
         return board[0][0];
     }else if(board[1][0] == board[1][1] == board[1][2] != 0){
