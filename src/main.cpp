@@ -1,16 +1,19 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 int board[3][3];
 bool gameActive = 1;
 int turnsTaken = 0;
 bool playerTurn = 0; // 0 is X and 1 is Y
+bool debugEnabled = 1;
 
 void resetBoard();
 void showBoard();
 void makeMove();
 int checkWinner();
 void checkWin();
+void debugOut(string output);
 
 int main(){
     resetBoard();
@@ -39,21 +42,29 @@ void showBoard(){
 }
 
 int checkWinner(){
-    if(board[0][0] == board[0][1] == board[0][2] != 0){
+    if(board[0][0] == board[0][1] == board[0][2] !=){
+        debugOut("END 1");
         return board[0][0];
     }else if(board[1][0] == board[1][1] == board[1][2] != 0){
+        debugOut("END 2");
         return board[1][0];
     }else if(board[2][0] == board[2][1] == board[2][2] != 0){
+        debugOut("END 3");
         return board[2][0];
     }else if(board[0][0] == board[1][0] == board[2][0] != 0){
+        debugOut("END 4");
         return board[0][0];
     }else if(board[0][1] == board[1][1] == board[2][1] != 0){
+        debugOut("END 5");
         return board[0][1];
     }else if(board[0][2] == board[1][2] == board[2][2] != 0){
+        debugOut("END 6");
         return board[0][1];
     }else if(board[0][0] == board[1][1] == board[2][2] != 0){
+        debugOut("END 7");
         return board[0][0];
     }else if(board[0][2] == board[1][1] == board[2][0] != 0){
+        debugOut("END 8");
         return board[0][1];
     }else{
         return 0;
@@ -68,7 +79,9 @@ void checkWin(){
         //Y Wins
         cout << "Player Y Wins!" << endl;
         gameActive = 0;
-    }else{}
+    }else{
+        debugOut("No win declared yet");
+    }
 }
 
 void makeMove(){
@@ -97,6 +110,11 @@ void makeMove(){
 }
 
 
+void debugOut(string output){
+    if(debugEnabled == 1){
+        cout << output << endl;
+    }
+}
 
 
 
