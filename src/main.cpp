@@ -7,6 +7,7 @@ bool gameActive = 1;
 int turnsTaken = 0;
 bool playerTurn = 0; // 0 is X and 1 is O
 bool debugEnabled = 1;
+bool gameLoop = 1;
 
 void resetBoard();
 void showBoard();
@@ -17,10 +18,13 @@ void debugOut(string output);
 char getPlayerLetter(int playerNumber);
 
 int main(){
-    resetBoard();
-    while(gameActive == 1){
-        showBoard();
-        makeMove();
+    while(gameLoop == 1){
+        resetBoard();
+        while(gameActive == 1){
+            showBoard();
+            makeMove();
+        }//cout << "Play Again? (1 to play again)" << endl;
+        //cin >> gameLoop;
     }
     return 0;
 }
@@ -37,7 +41,7 @@ void showBoard(){
     cout << "  0   1   2 " << endl << endl
          << "0 " << getPlayerLetter(board[0][0]) << " | " << getPlayerLetter(board[0][1]) << " | " << getPlayerLetter(board[0][2]) << endl
          << "----+---+----" << endl
-         << "1 " << getPlayerLetter(board[1][0]) << " | " << getPlayerLetter(board[1][1]) << " | " << getPlayerLetter(board[2][2]) << endl
+         << "1 " << getPlayerLetter(board[1][0]) << " | " << getPlayerLetter(board[1][1]) << " | " << getPlayerLetter(board[1][2]) << endl
          << "----+---+----" << endl
          << "2 " << getPlayerLetter(board[2][0]) << " | " << getPlayerLetter(board[2][1]) << " | " << getPlayerLetter(board[2][2]) << endl;
 }
